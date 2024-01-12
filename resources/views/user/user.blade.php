@@ -46,20 +46,24 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach([1,1,1,1,1] as $item)
+                                        @foreach($data as $item)
                                             <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>chai</td>
-                                            <td>male</td>
-                                            <td>099 774 967</td>
-                                            <td>Admin</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->gender }}</td>
+                                            <td>{{ $item->phone }}</td>
+                                            <td>{{ $item->role }}</td>
                                             <td>
-                                                <button>
-                                                    <i class="far fa-edit"></i>
-                                                </button>
-                                                <button class="ml-2 text-danger">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </button>
+                                                <a href="{{ route('index_update_user') }}">
+                                                    <button>
+                                                        <i class="far fa-edit"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="{{ route('index_confirm_delete') }}">
+                                                    <button class="ml-2 text-danger">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </button>
+                                                </a>
                                             </td>
                                         </tr>
                                         @endforeach

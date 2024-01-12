@@ -21,11 +21,5 @@ Route::get('/admin', function () {
     return view('dashboard');
 });
 
-Route::get('/admin/user', function () {
-    return view('user.user');
-});
-
-Route::get('/admin/create_user', function () {
-    return view('user.create');
-});
+include 'admin/user.php';
 

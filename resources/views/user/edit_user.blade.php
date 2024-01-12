@@ -6,13 +6,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Create User</h1>
+                        <h1 class="m-0">Update User</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ url('/admin/user') }}">User List</a></li>
-                            <li class="breadcrumb-item active">Create User</li>
+                            <li class="breadcrumb-item"><a href="{{ route('index_user') }}">User List</a></li>
+                            <li class="breadcrumb-item active">Update User</li>
                         </ol>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                             </div>
                             <div class="card-body">
                                 <form
-                                    action="{{ route('create_user') }}"
+                                    action="{{ route('update_user') }}"
                                     method="post"
                                     enctype="multipart/form-data"
                                 >
@@ -93,7 +93,7 @@
                                         >
                                     </div>
                                     <button type="reset" class="btn btn-danger">Cancel</button>
-                                    <button type="submit" class="float-right btn btn-primary">Save</button>
+                                    <button type="submit" class="float-right btn btn-primary">Update</button>
                                 </form>
                             </div>
                         </div>
