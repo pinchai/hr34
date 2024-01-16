@@ -50,16 +50,27 @@
                                             <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->gender }}</td>
-                                            <td>{{ $item->phone }}</td>
-                                            <td>{{ $item->role }}</td>
                                             <td>
-                                                <a href="{{ route('index_update_user') }}">
+                                                <span style="text-transform: capitalize">{{ $item->gender }}</span>
+                                            </td>
+                                            <td>{{ $item->phone }}</td>
+                                            <td>
+                                                <span
+                                                    style="
+                                                    text-transform: capitalize;
+                                                     background-color: yellow;
+                                                      color: red; border-radius: 5px"
+                                                >
+                                                    {{ $item->role }}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('index_update_user') }}?id={{ $item->id }}">
                                                     <button>
                                                         <i class="far fa-edit"></i>
                                                     </button>
                                                 </a>
-                                                <a href="{{ route('index_confirm_delete') }}">
+                                                <a href="{{ route('index_confirm_delete') }}?id={{ $item->id }}">
                                                     <button class="ml-2 text-danger">
                                                         <i class="far fa-trash-alt"></i>
                                                     </button>

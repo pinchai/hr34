@@ -41,6 +41,7 @@
                                     enctype="multipart/form-data"
                                 >
                                     @csrf
+                                    <input type="hidden" name="id" value="{{ $data->id }}">
                                     <div class="form-group">
                                         <label for="name">User name</label>
                                         <input
@@ -49,6 +50,7 @@
                                             class="form-control"
                                             id="name"
                                             name="name"
+                                            value="{{ $data->name }}"
                                         >
                                     </div>
                                     <div class="form-group">
@@ -58,8 +60,8 @@
                                             id="gender"
                                             name="gender"
                                         >
-                                            <option value="male">Male</option>
-                                            <option value="male" selected>Female</option>
+                                            <option value="male" {{ $data->gender == 'male' ? 'selected' : '' }}>Male</option>
+                                            <option value="female" {{ $data->gender == 'female' ? 'selected' : '' }}>Female</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -69,6 +71,7 @@
                                             class="form-control"
                                             id="phone"
                                             name="phone"
+                                            value="{{ $data->phone }}"
                                         >
                                     </div>
                                     <div class="form-group">
@@ -78,14 +81,23 @@
                                             id="role"
                                             name="role"
                                         >
-                                            <option value="admin">Admin</option>
-                                            <option value="employee" selected>Employee</option>
+                                            <option
+                                                value="admin"
+                                                {{ $data->role == 'admin' ? 'selected' : '' }}
+                                            >
+                                                Admin
+                                            </option>
+                                            <option
+                                                value="employee"
+                                                {{ $data->role == 'employee' ? 'selected' : '' }}
+                                            >
+                                                Employee
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password</label>
                                         <input
-                                            required
                                             type="password"
                                             class="form-control"
                                             id="password"

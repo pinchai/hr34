@@ -42,7 +42,7 @@ class UsersController extends Controller
     }
 
     public static function confirm_delete(Request $request){
-        $user_id = $request->query('user_id');
+        $user_id = $request->query('id');
         $data = User::find($user_id);
         return view('user.confirm_delete', ['data'=>$data]);
     }
@@ -58,29 +58,22 @@ class UsersController extends Controller
     }
 
     public static function index_update_user(Request $request){
-        $user_id = $request->query('user_id');
+        $user_id = $request->query('id');
         $data = User::find($user_id);
         return view('user.edit_user', ['data'=>$data]);
     }
 
     public function update(Request $request){
         $user = User::find($request->id);
-        $old_profile = $user->profile;
         if ($user){
             $user->name = $request->name;
-            $user->email = $request->email;
             $user->phone = $request->phone;
-            $user->permission = $request->permission;
+            $user->role = $request->role;
+            $user->gender = $request->gender;
+            $user->save();
+
             if($request->password != ''){
                 $user->password = Hash::make($request->input('password'));
-            }
-            if ($user->save()){
-                if (isset($request->profile)){
-                    $imageName = time().'.'.$request->profile->extension();
-                    $request->profile->move(public_path('images'), $old_profile);
-                    $user->profile = $old_profile;
-                    $user->save();
-                }
             }
         }
 

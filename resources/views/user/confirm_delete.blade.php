@@ -21,7 +21,7 @@
                 <div class="col-5">
                     <div class="card">
                         <div class="card-body">
-                            Do you want to delete user <strong>aa</strong>?
+                            Do you want to delete user <strong>{{ $data->name }}</strong>?
                             <ul>
                                 <li style="list-style: none">
                                     <img
@@ -31,9 +31,9 @@
                                         alt=""
                                     >
                                 </li>
-                                <li>Name: </li>
-                                <li>Phone: </li>
-                                <li>Email:</li>
+                                <li>Name: {{ $data->name }}</li>
+                                <li>Phone: {{ $data->phone }}</li>
+                                <li>Email: {{ $data->email }}</li>
                             </ul>
                             <div class="row">
                                 <div class="col-6">
@@ -47,7 +47,7 @@
                                 <div class="col-6">
                                     <form method="post" action="{{ route('delete_user') }}">
                                         @csrf
-                                        <input type="hidden" name="id" value="">
+                                        <input type="hidden" name="id" value="{{ $data->id }}">
                                         <button type="submit" class="btn btn-danger float-right">
                                             <i class="far fa-trash-alt"></i>
                                             Yes Delete
